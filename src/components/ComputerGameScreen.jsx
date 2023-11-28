@@ -32,7 +32,14 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
       setInProgress(false);
       onFailed();
     }
-  }, [inProgress, countdown, onFailed]);
+  }, [inProgress, countdown, onFailed, level]);
+
+  useEffect(() => {
+    if (level === 3) {
+      setCountdown((prevCountdown) => prevCountdown + 10);
+      alert(`Has tenido suerte! El TA te regala 10 segundos extra`);
+    }
+  }, [level]);
 
   const handleComputerClick = () => {
     if (!inProgress) {
