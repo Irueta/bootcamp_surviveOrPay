@@ -50,6 +50,17 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
     setLevel((prevLevel) => prevLevel + 1);
     setPointsRequired((prevPointsRequired) => prevPointsRequired + 100);
     alert(`¡Has alcanzado el nivel ${level + 1}!`);
+    // Aumenta las cualidades del personaje cuando el nivel es 2
+    if (level % 2 === 0) {
+      const updatedCharacter = {
+        ...selectedCharacter,
+        frontend: selectedCharacter.frontend + 1,
+        backend: selectedCharacter.backend + 1,
+        css: selectedCharacter.css + 1,
+      };
+      setSelectedCharacter(updatedCharacter);
+      alert(`Tus cualidades han mejorado en 1 punto!`);
+    }
   };
 
   const handleFailed = () => {
