@@ -40,12 +40,14 @@ const getCharacter = () => {
 
   return (
     <div className="title-screen">
-      <h1>Bootcamp Survive</h1>
+      <h1>powered by BBKK</h1>
+      <img id="titulo" src="/titulo.png" alt="Bootcamp Survive" />
       {playerName ? (
         <>
           <p>Has hecho lo que has podido, {playerName}.</p>
           <p>Niveles alcanzados: {getLevelsReached()}</p>
-          <ul>Personaje utilizado:
+          <p>Personaje utilizado:</p>
+          <ul>
             <li>Personaje: {getCharacter().name}</li>
             <li>Frontend: {getCharacter().frontend}</li>
             <li>Backend: {getCharacter().backend}</li>

@@ -63,23 +63,26 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
   };
 
   return (
-    <div className="computer-game-screen">
-      <div className="game-info">
-        <p>Task: {task.type}</p>
-        <p>Level: {task.level}</p>
-        <p>Points required: {taskPoints}</p>
-        <p>Progress: {progress}</p>
-        <p>Time remaining: {countdown} seconds</p>
-      </div>
-      <div className="computer-image" onClick={handleComputerClick}>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWKJUMjYDYwgiCkYkUgp_k1I5Tg6YrW5RLEuzTqFJStQ&s"
-          alt="Computer"
-          style={{ cursor: 'pointer' }}
-        />
-      </div>
-      <button onClick={handleQuit}>Abandonar bootcamp</button>
+      <div className="computer-game-screen">
+    <div className="game-info">
+      <p className="info-text">Task: {task.type}</p>
+      <p className="info-text">Level: {task.level}</p>
+      <p className="info-text">Points required: {taskPoints}</p>
+      <p className="info-text">Progress: {progress}</p>
+      <p className="info-text">Time remaining: {countdown} seconds</p>
     </div>
+    <div className="computer-image" onClick={handleComputerClick}>
+      <img id="chatGPTbutton"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png"
+        alt="Computer"
+        style={{ cursor: 'pointer' }}
+      />
+    </div>
+    <button className="quit-button" onClick={handleQuit}>
+      Abandonar bootcamp
+    </button>
+  </div>
+
   );
 };
 

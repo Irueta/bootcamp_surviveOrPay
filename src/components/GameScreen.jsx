@@ -15,14 +15,14 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
 
   useEffect(() => {
     const charactersData = [
-      { id: 1, name: 'Hola T.Z', frontend: 5, backend: 5, css: 5, motivacion: 1 },
-      { id: 2, name: 'Vi a Txor', frontend: 7, backend: 5, css: 8, motivacion: 1 },
-      { id: 3, name: 'Ahal Ex', frontend: 5, backend: 5, css: 5, motivacion: 1 },
-      { id: 4, name: 'Estré', frontend: 7, backend: 5, css: 8, motivacion: 1 },
-      { id: 5, name: 'Michel In', frontend: 5, backend: 5, css: 5, motivacion: 1 },
-      { id: 6, name: 'Dan Bis', frontend: 7, backend: 5, css: 8, motivacion: 1 },
-      { id: 7, name: 'Andrey', frontend: 7, backend: 5, css: 8, motivacion: 1 },
-      { id: 8, name: 'Jo Hon', frontend: 7, backend: 5, css: 8, motivacion: 1 }
+      { id: 1, name: 'Hola T.Z', frontend: 1, backend: 1, css: 3, motivacion: 0.5 },
+      { id: 2, name: 'Vi a Txor', frontend: 7, backend: 3, css: 9, motivacion: 1 },
+      { id: 3, name: 'Ahal Ex', frontend: 6, backend: 7, css: 6, motivacion: 1 },
+      { id: 4, name: 'Estré', frontend: 7, backend: 3.5, css: 8, motivacion: 1.5 },
+      { id: 5, name: 'Michel In', frontend: 7, backend: 7, css: 5, motivacion: 1 },
+      { id: 6, name: 'Dan Bis', frontend: 7, backend: 4, css: 8, motivacion: 1 },
+      { id: 7, name: 'Andrey', frontend: 6, backend: 8, css: 5, motivacion: 1 },
+      { id: 8, name: 'Yo Hon', frontend: 5, backend: 7, css: 5, motivacion: 3 }
     ];
 
     setCharacters(charactersData);
@@ -67,7 +67,8 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
     setShowComputerGame(false);
     onGameOver(level);
     localStorage.setItem('levelsReached', level)
-    console.log('levelsReached', level)
+    localStorage.removeItem('character');
+    localStorage.setItem('character', JSON.stringify(selectedCharacter));
   };
 
   const handleQuit = () => {
@@ -77,7 +78,6 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
     localStorage.setItem('levelsReached', level)
     localStorage.removeItem('character');
     localStorage.setItem('character', JSON.stringify(selectedCharacter));
-    console.log('character', selectedCharacter)
   };
 
   return (
@@ -93,8 +93,10 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
         />
       ) : (
         <>
-          <h2>Selecciona tu personaje</h2>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
+        <div className='selecPerson'>
+          <img id="selecPerson" src="/selecPerson.png" alt="seleccion del personaje" />
+        </div>
+          {error && <p style={{ textAlign: "center", color: 'red' }}>{error}</p>}
           <div className="character-list">
             {characters.map((character) => (
               <CharacterCard
@@ -104,7 +106,9 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
               />
             ))}
           </div>
-          <button onClick={handleCodeButtonClick}>A picar código</button>
+          <div id="picar">
+          <button id="picarButton" onClick={handleCodeButtonClick}>A picar código</button>
+          </div>
         </>
       )}
     </div>
