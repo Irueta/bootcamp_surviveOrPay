@@ -11,7 +11,7 @@ const CharacterCard = ({ character, onCharacterClick }) => {
 
   return (
     <div className="character-card">
-      <img src={`imagen-${character.id}.png`} alt={character.name} />
+      <img src={`/characters/imagen-${character.id}.gif`} alt={character.name} />
       <p>Nombre: {character.name}</p>
       <p>Frontend: {character.frontend}</p>
       <p>Backend: {character.backend}</p>

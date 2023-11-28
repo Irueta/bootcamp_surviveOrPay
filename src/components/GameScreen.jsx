@@ -15,9 +15,14 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
 
   useEffect(() => {
     const charactersData = [
-      { id: 1, name: 'Personaje 1', frontend: 5, backend: 5, css: 5, motivacion: 1 },
-      { id: 2, name: 'Personaje 2', frontend: 7, backend: 5, css: 8, motivacion: 1 },
-      // Agrega más personajes según sea necesario
+      { id: 1, name: 'Hola T.Z', frontend: 5, backend: 5, css: 5, motivacion: 1 },
+      { id: 2, name: 'Vi a Txor', frontend: 7, backend: 5, css: 8, motivacion: 1 },
+      { id: 3, name: 'Ahal Ex', frontend: 5, backend: 5, css: 5, motivacion: 1 },
+      { id: 4, name: 'Estré', frontend: 7, backend: 5, css: 8, motivacion: 1 },
+      { id: 5, name: 'Michel In', frontend: 5, backend: 5, css: 5, motivacion: 1 },
+      { id: 6, name: 'Dan Bis', frontend: 7, backend: 5, css: 8, motivacion: 1 },
+      { id: 7, name: 'Andrey', frontend: 7, backend: 5, css: 8, motivacion: 1 },
+      { id: 8, name: 'Jo Hon', frontend: 7, backend: 5, css: 8, motivacion: 1 }
     ];
 
     setCharacters(charactersData);
