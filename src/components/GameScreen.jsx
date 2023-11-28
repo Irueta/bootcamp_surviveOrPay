@@ -62,6 +62,7 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
   const handleQuit = () => {
     setShowComputerGame(false);
     setSelectedCharacter(null);
+    onGameOver(level);
   };
 
   return (
