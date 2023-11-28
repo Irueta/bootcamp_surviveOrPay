@@ -15,6 +15,15 @@ const TitleScreen = ({ playerName, levelsReached, onPlay, onReset }) => {
     onReset();
   };
 
+  const handlePlay = () => {
+    // Verificar si se ha ingresado un nombre antes de continuar
+    if (name.trim() !== '') {
+      onPlay(name);
+    } else {
+      alert('Por favor, ingresa un nombre antes de comenzar.');
+    }
+  };
+
 
   const getLevelsReached = () => { 
     const levelsReached = localStorage.getItem('levelsReached')|| 1;
@@ -53,7 +62,7 @@ const getCharacter = () => {
             value={name}
             onChange={handleNameChange}
           />
-          <button onClick={() => onPlay(name)}>Jugar</button>
+          <button onClick={handlePlay}>Jugar</button>
         </>
       )}
     </div>
