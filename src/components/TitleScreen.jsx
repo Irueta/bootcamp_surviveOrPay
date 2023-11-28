@@ -15,13 +15,20 @@ const TitleScreen = ({ playerName, levelsReached, onPlay, onReset }) => {
     onReset();
   };
 
+
+  const getLevelsReached = () => { 
+    const levelsReached = localStorage.getItem('levelsReached');
+    console.log('levelsReached', levelsReached)
+    return levelsReached;
+  }
+
   return (
     <div className="title-screen">
       <h1>Bootcamp Survive</h1>
       {playerName ? (
         <>
           <p>Bienvenido de nuevo, {playerName}.</p>
-          <p>Niveles alcanzados: {levelsReached}</p>
+          <p>Niveles alcanzados: {getLevelsReached()}</p>
           <button onClick={handleReset}>Volver a pagar el bootcamp</button>
         </>
       ) : (

@@ -44,17 +44,19 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
     // Actualiza el nivel y los puntos requeridos
     setLevel((prevLevel) => prevLevel + 1);
     setPointsRequired((prevPointsRequired) => prevPointsRequired + 100);
+    alert(`¡Has alcanzado el nivel ${level + 1}!`);
   };
 
   const handleFailed = () => {
     setShowComputerGame(false);
     onGameOver(level);
+    localStorage.setItem('levelsReached', level)
+    console.log('levelsReached', level)
   };
 
   const handleQuit = () => {
     setShowComputerGame(false);
     setSelectedCharacter(null);
-    onQuit();
   };
 
   return (
