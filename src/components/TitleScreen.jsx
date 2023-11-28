@@ -22,6 +22,13 @@ const TitleScreen = ({ playerName, levelsReached, onPlay, onReset }) => {
     return levelsReached;
   }
 
+const getCharacter = () => {
+  const characterString = localStorage.getItem('character') || null;
+  const character = JSON.parse(characterString);
+  return character; 
+};
+
+
   return (
     <div className="title-screen">
       <h1>Bootcamp Survive</h1>
@@ -29,6 +36,13 @@ const TitleScreen = ({ playerName, levelsReached, onPlay, onReset }) => {
         <>
           <p>Has hecho lo que has podido, {playerName}.</p>
           <p>Niveles alcanzados: {getLevelsReached()}</p>
+          <ul>Personaje utilizado:
+            <li>Personaje: {getCharacter().name}</li>
+            <li>Frontend: {getCharacter().frontend}</li>
+            <li>Backend: {getCharacter().backend}</li>
+            <li>CSS: {getCharacter().css}</li>
+            <li>Motivación: {getCharacter().motivacion}</li>
+          </ul>
           <button onClick={handleReset}>Volver a pagar el bootcamp</button>
         </>
       ) : (

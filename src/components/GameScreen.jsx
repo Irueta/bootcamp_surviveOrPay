@@ -75,6 +75,9 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
     setSelectedCharacter(null);
     onGameOver(level);
     localStorage.setItem('levelsReached', level)
+    localStorage.removeItem('character');
+    localStorage.setItem('character', JSON.stringify(selectedCharacter));
+    console.log('character', selectedCharacter)
   };
 
   return (

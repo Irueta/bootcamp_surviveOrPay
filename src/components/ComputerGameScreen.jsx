@@ -35,7 +35,7 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
   }, [inProgress, countdown, onFailed, level]);
 
   useEffect(() => {
-    if (level === 3) {
+    if (level % 3=== 0) {
       setCountdown((prevCountdown) => prevCountdown + 10);
       alert(`Has tenido suerte! El TA te regala 10 segundos extra`);
     }
