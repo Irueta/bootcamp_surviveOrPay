@@ -63,6 +63,7 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
     setShowComputerGame(false);
     setSelectedCharacter(null);
     onGameOver(level);
+    localStorage.setItem('levelsReached', level)
   };
 
   return (
