@@ -83,7 +83,7 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
     </div>
     <div className="computer-image" onClick={handleComputerClick}>
       <img id="chatGPTbutton"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png"
+        src="/ChatGPT-3D-Icon.png"
         alt="Computer"
         className={`container ${isShaking ? 'shake' : ''}`} style={{ cursor: 'pointer' }}
       />

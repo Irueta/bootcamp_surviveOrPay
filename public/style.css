@@ -64,6 +64,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 width: 500px;
 height: auto;
 margin: 0 auto;
+border: solid 2px black;
 }
 
 
@@ -151,8 +152,15 @@ justify-content: space-around;
 }
 
 #chatGPTbutton{
-width: 250px;
-height: 210px;
+width: 500px;
+padding:0px;
+/* height: 210px; */
+
+}
+
+#preguntaleChatGPTImage{
+  margin-bottom: 35px;
+  
 }
 
 

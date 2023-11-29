@@ -1,5 +1,6 @@
 // TitleScreen.js
 import React, { useState, useEffect } from 'react';
+import ProgressBar from './ProgressBar';
 
 const TitleScreen = ({ playerName, levelsReached, onPlay, onReset }) => {
   const [name, setName] = useState(playerName || '');
@@ -46,13 +47,12 @@ const getCharacter = () => {
         <>
           <p>Has hecho lo que has podido, {playerName}.</p>
           <p>Niveles alcanzados: {getLevelsReached()}</p>
-          <p>Personaje utilizado:</p>
+          <p>Personaje utilizado, "{getCharacter().name}":</p>
           <ul>
-            <li>Personaje: {getCharacter().name}</li>
-            <li>Frontend: {getCharacter().frontend}</li>
-            <li>Backend: {getCharacter().backend}</li>
-            <li>CSS: {getCharacter().css}</li>
-            <li>Motivación: {getCharacter().motivacion}</li>
+            <li>Frontend:<ProgressBar value={getCharacter().frontend} max="10"/></li>
+            <li>Backend: <ProgressBar value={getCharacter().backend} max="10"/></li>
+            <li>CSS: <ProgressBar value={getCharacter().css} max="10"/></li>
+            <li>Motivación: <ProgressBar value={getCharacter().motivacion} max="10"/></li>
           </ul>
           <button onClick={handleReset}>Volver a pagar el bootcamp</button>
         </>
