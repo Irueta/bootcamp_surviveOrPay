@@ -43,14 +43,11 @@ transform: scale(1.02);
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.character-card p::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px; /* Ajusta la altura de la barra según tu preferencia */
-  background-color: #3498db; /* Puedes ajustar el color de la barra */
+#nombre{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+
 }
 
 
@@ -65,11 +62,16 @@ background-color: #f0f0f0;
 border-radius: 10px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 width: 500px;
-height: 500px;
-/* max-width: 400px; */
+height: auto;
 margin: 0 auto;
 }
 
+#level{
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+
+}
 
 .game-info {
   margin-bottom: 20px;
@@ -86,6 +88,8 @@ margin: 0 auto;
 .computer-image {
   margin-bottom: 20px;
 }
+
+
 
 .quit-button {
   background-color: #f14324; 
@@ -154,3 +158,27 @@ height: 210px;
 width: 100%;
 }
 
+
+/* Estilo para la barra de progreso */
+.progress-bar {
+  width: 100%;
+  
+}
+
+progress {
+  width: 100%;
+  height: 20px; 
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #fa4f4fc4;
+}
+
+progress::-webkit-progress-value {
+  background-color: #4caf50; 
+}
+
+/* progress::-moz-progress-bar {
+  background-color: #4caf50;
+} */

@@ -1,12 +1,13 @@
 // ComputerGameScreen.jsx
 import React, { useState, useEffect } from 'react';
+import ProgressBar from './ProgressBar';
 
-const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, pointsRequired }) => {
+const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, pointsRequired, maxTime }) => {
   const [inProgress, setInProgress] = useState(false);
   const [task, setTask] = useState({});
   const [taskPoints, setTaskPoints] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [countdown, setCountdown] = useState(10 * player.motivacion);
+  const [countdown, setCountdown] = useState(10* player.motivacion);
 
   useEffect(() => {
     const generateRandomTask = () => {
@@ -51,7 +52,7 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
       if (newProgress >= taskPoints) {
         setInProgress(false);
         setProgress(0);
-        onSurvived();
+        onSurvived(countdown);
       }
       return newProgress;
     });
@@ -65,10 +66,10 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
   return (
       <div className="computer-game-screen">
     <div className="game-info">
+      <p id="level" className="info-text">Level: {task.level}</p>
       <p className="info-text">Task: {task.type}</p>
-      <p className="info-text">Level: {task.level}</p>
       <p className="info-text">Points required: {taskPoints}</p>
-      <p className="info-text">Progress: {progress}</p>
+      <p className="info-text">Progress: <ProgressBar value={progress} max={taskPoints} /></p>
       <p className="info-text">Time remaining: {countdown} seconds</p>
     </div>
     <div className="computer-image" onClick={handleComputerClick}>
