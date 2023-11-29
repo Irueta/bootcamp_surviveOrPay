@@ -39,19 +39,12 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
   const handleCharacterClick = (character, isChecked) => {
     if (isChecked ) {
       setSelectedCharacter(character);
+      setShowComputerGame(true);
     } else {
       setSelectedCharacter(null);
     }
   };
 
-  const handleCodeButtonClick = () => {
-    if (selectedCharacter) {
-      setShowComputerGame(true);
-      setError('');
-    } else {
-      setError('Debes seleccionar un personaje antes de picar código');
-    }
-  };
 
 const addLevelCharacter = () => {
   const updatedCharacter = {
@@ -122,9 +115,7 @@ const addLevelCharacter = () => {
               />
             ))}
           </div>
-          <div id="picar">
-          <button id="picarButton" onClick={handleCodeButtonClick}>A picar código</button>
-          </div>
+
         </>
       )}
     </div>

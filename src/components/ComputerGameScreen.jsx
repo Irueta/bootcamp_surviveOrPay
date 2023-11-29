@@ -7,7 +7,7 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
   const [task, setTask] = useState({});
   const [taskPoints, setTaskPoints] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [countdown, setCountdown] = useState(10* player.motivacion);
+  const [countdown, setCountdown] = useState(maxTime);
 
   useEffect(() => {
     const generateRandomTask = () => {
