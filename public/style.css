@@ -66,6 +66,7 @@ height: auto;
 margin: 0 auto;
 }
 
+
 #level{
   font-size: 1.5em;
   font-weight: bold;
@@ -154,9 +155,23 @@ width: 250px;
 height: 210px;
 }
 
-#picarButton{
-width: 100%;
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25%, 75% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
 }
+
+.shake {
+  animation: shake 0.02s ease-in-out;
+}
+
 
 
 /* Estilo para la barra de progreso */

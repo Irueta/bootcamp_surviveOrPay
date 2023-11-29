@@ -8,6 +8,7 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
   const [taskPoints, setTaskPoints] = useState(0);
   const [progress, setProgress] = useState(0);
   const [countdown, setCountdown] = useState(maxTime);
+  const [isShaking, setShaking] = useState(false);
 
   useEffect(() => {
     const generateRandomTask = () => {
@@ -43,6 +44,11 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
   }, [level]);
 
   const handleComputerClick = () => {
+    setShaking(true);
+    setTimeout(() => {
+      setShaking(false);
+    }, 50); 
+
     if (!inProgress) {
       setInProgress(true);
     }
@@ -53,6 +59,7 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
         setInProgress(false);
         setProgress(0);
         onSurvived(countdown);
+        
       }
       return newProgress;
     });
@@ -64,6 +71,8 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
   };
 
   return (
+    <>
+    <img id="preguntaleChatGPTImage" src="/chatGPT.png" alt="" />
       <div className="computer-game-screen">
     <div className="game-info">
       <p id="level" className="info-text">Level: {task.level}</p>
@@ -76,14 +85,14 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
       <img id="chatGPTbutton"
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png"
         alt="Computer"
-        style={{ cursor: 'pointer' }}
+        className={`container ${isShaking ? 'shake' : ''}`} style={{ cursor: 'pointer' }}
       />
     </div>
     <button className="quit-button" onClick={handleQuit}>
       Abandonar bootcamp
     </button>
   </div>
-
+  </>
   );
 };
 
