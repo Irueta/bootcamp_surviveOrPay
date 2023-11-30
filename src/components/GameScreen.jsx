@@ -14,6 +14,7 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
   const [pointsRequired, setPointsRequired] = useState(100);
   const [countdown,setCountdown] = useState(10);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [bonusTime, setBonusTime] = useState(0);
 
 
   useEffect(() => {
@@ -32,10 +33,10 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
   }, []);
 
 
-  useEffect(() => {
+/*   useEffect(() => {
     if (selectedCharacter) {
-      setCountdown(10*selectedCharacter.motivacion);
-    }},[selectedCharacter]);
+      setCountdown(selectedCharacter.motivacion*10);
+    }},[selectedCharacter]); */
 
   const handleCharacterClick = (character, isChecked) => {
     if (isChecked ) {
@@ -62,22 +63,49 @@ const addLevelCharacter = () => {
     setCountdown(timeLeft);
     setLevel((prevLevel) => prevLevel + 1);
     setPointsRequired((prevPointsRequired) => prevPointsRequired + 100);
-    alert(`¡Has alcanzado el nivel ${level + 1}!`);
+    //alert(`¡Has alcanzado el nivel ${level + 1}!`);
     // Aumenta las cualidades del personaje cuando el nivel es 2
-    if (level % 2 === 0) {
+/*     if (level % 2 === 0) {
       addLevelCharacter();
       alert(`Tus cualidades han mejorado en 1 punto!`);
       setModalIsOpen(true);
-    }
+    } */
     
   };
   
+
+  useEffect(() => {
+    if (level > 1) {
+      openModal();
+    }
+  }, [level]);
+
+  const openModal = () => {
+    // Abre el modal
+    setModalIsOpen(true);
+  };
 
   const closeModal = () => {
     // Cierra el modal
     setModalIsOpen(false);
   };
 
+  const handleAddLevel = () => {
+    addLevelCharacter();
+    alert(`Tus cualidades han mejorado en 1 punto!`);
+    setModalIsOpen(false);
+  };
+
+  const handleAddTime = () => { 
+      setBonusTime(true);
+      alert(`Has tenido suerte! El TA te regala 10 segundos extra`);
+    setModalIsOpen(false);
+    
+  };
+
+useEffect(() => {
+  setBonusTime(false);
+}, [level]);
 
   const handleFailed = () => {
     setShowComputerGame(false);
@@ -98,7 +126,13 @@ const addLevelCharacter = () => {
 
   return (
     <div className="game-screen">
-       <Modal isOpen={modalIsOpen} onClose={closeModal} level={level} />
+       <Modal
+        isOpen={modalIsOpen}
+        onClose={closeModal}
+        level={level}
+        onAddTime={handleAddTime}
+        onAddLevel={handleAddLevel}
+      />
       {showComputerGame ? (
         <ComputerGameScreen
           player={selectedCharacter}
@@ -109,6 +143,7 @@ const addLevelCharacter = () => {
           pointsRequired={pointsRequired}
           maxTime={countdown}
           modalIsOpen={modalIsOpen}
+          bonusTime={bonusTime}
         />
       ) : (
         <>

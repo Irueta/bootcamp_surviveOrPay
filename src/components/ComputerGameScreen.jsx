@@ -3,13 +3,17 @@ import React, { useState, useEffect } from 'react';
 import Modal from './Modal';
 import ProgressBar from './ProgressBar';
 
-const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, pointsRequired, maxTime, modalIsOpen }) => {
+const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, pointsRequired, maxTime, modalIsOpen, bonusTime }) => {
   const [inProgress, setInProgress] = useState(false);
   const [task, setTask] = useState({});
   const [taskPoints, setTaskPoints] = useState(0);
   const [progress, setProgress] = useState(0);
   const [countdown, setCountdown] = useState(maxTime);
   const [isShaking, setShaking] = useState(false);
+
+  useEffect(() => {
+    setCountdown(maxTime*player.motivacion);
+  }, []);
 
   useEffect(() => {
     const generateRandomTask = () => {
@@ -38,11 +42,11 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
   }, [inProgress, countdown, onFailed, level]);
 
   useEffect(() => {
-    if (level % 3=== 0) {
+    if (bonusTime === true) {
       setCountdown((prevCountdown) => prevCountdown + 10);
-      alert(`Has tenido suerte! El TA te regala 10 segundos extra`);
+      
     }
-  }, [level]);
+  }, [bonusTime]);
 
   const handleComputerClick = () => {
     setShaking(true);
