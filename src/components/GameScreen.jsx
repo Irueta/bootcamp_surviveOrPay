@@ -73,6 +73,12 @@ const addLevelCharacter = () => {
   };
   
 
+  const closeModal = () => {
+    // Cierra el modal
+    setModalIsOpen(false);
+  };
+
+
   const handleFailed = () => {
     setShowComputerGame(false);
     onGameOver(level);
@@ -92,6 +98,7 @@ const addLevelCharacter = () => {
 
   return (
     <div className="game-screen">
+       <Modal isOpen={modalIsOpen} onClose={closeModal} level={level} />
       {showComputerGame ? (
         <ComputerGameScreen
           player={selectedCharacter}
