@@ -13,6 +13,7 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
   const [level, setLevel] = useState(1);
   const [pointsRequired, setPointsRequired] = useState(100);
   const [countdown,setCountdown] = useState(10);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
 
   useEffect(() => {
@@ -66,6 +67,7 @@ const addLevelCharacter = () => {
     if (level % 2 === 0) {
       addLevelCharacter();
       alert(`Tus cualidades han mejorado en 1 punto!`);
+      setModalIsOpen(true);
     }
     
   };
@@ -99,6 +101,7 @@ const addLevelCharacter = () => {
           level={level}
           pointsRequired={pointsRequired}
           maxTime={countdown}
+          modalIsOpen={modalIsOpen}
         />
       ) : (
         <>

@@ -1,8 +1,9 @@
 // ComputerGameScreen.jsx
 import React, { useState, useEffect } from 'react';
+import Modal from './Modal';
 import ProgressBar from './ProgressBar';
 
-const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, pointsRequired, maxTime }) => {
+const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, pointsRequired, maxTime, modalIsOpen }) => {
   const [inProgress, setInProgress] = useState(false);
   const [task, setTask] = useState({});
   const [taskPoints, setTaskPoints] = useState(0);
