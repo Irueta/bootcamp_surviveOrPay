@@ -43,7 +43,7 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
 
   useEffect(() => {
     if (bonusTime === true) {
-      setCountdown((prevCountdown) => prevCountdown + 10);
+      setCountdown((prevCountdown) => prevCountdown + (5*player.motivacion));
       
     }
   }, [bonusTime]);
@@ -80,11 +80,11 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
     <img id="preguntaleChatGPTImage" src="/chatGPT.png" alt="" />
       <div className="computer-game-screen">
     <div className="game-info">
-      <p id="level" className="info-text">Level: {task.level}</p>
-      <p className="info-text">Task: {task.type}</p>
-      <p className="info-text">Points required: {taskPoints}</p>
-      <p className="info-text">Progress: <ProgressBar value={progress} max={taskPoints} /></p>
-      <p className="info-text">Time remaining: {countdown} seconds</p>
+      <p id="level" className="info-text">Semana: {task.level}</p>
+      <p className="info-text">Tarea: {task.type}</p>
+      <p className="info-text">Puntos requeridos: {taskPoints}</p>
+      <p className="info-text">Progreso: <ProgressBar value={progress} max={taskPoints} /></p>
+      <p className="info-text">Tiempo restante: {countdown} segundos</p>
     </div>
     <div className="computer-image" onClick={handleComputerClick}>
       <img id="chatGPTbutton"

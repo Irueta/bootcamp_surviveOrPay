@@ -14,10 +14,10 @@ const [isChecked, setIsChecked] = useState(false);
     <div className="character-card">
       <img src={`/characters/imagen-${character.id}.gif`} alt={character.name} />
       <p id="nombre">Nombre: {character.name}</p>
-      <p>Frontend: <ProgressBar value={character.frontend} max={10} /></p>
-      <p>Backend: <ProgressBar value={character.backend} max={10} /></p>
-      <p>CSS: <ProgressBar value={character.css} max={10} /></p>
-      <p>Motivación: <ProgressBar value={character.motivacion} max={4} /></p>
+      <p>Frontend: {character.frontend}<ProgressBar value={character.frontend} max={10} /></p>
+      <p>Backend: {character.backend}<ProgressBar value={character.backend} max={10} /></p>
+      <p>CSS: {character.css}<ProgressBar value={character.css} max={10} /></p>
+      <p>Motivación: {character.motivacion}<ProgressBar value={character.motivacion} max={4} /></p>
       <input type="checkbox" checked={isChecked} onChange={handleCheckboxChange} />Soy tu bro
     </div>
   );

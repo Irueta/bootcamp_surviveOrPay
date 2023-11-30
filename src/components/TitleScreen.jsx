@@ -49,10 +49,10 @@ const getCharacter = () => {
           <p>Niveles alcanzados: {getLevelsReached()}</p>
           <p>Personaje utilizado, "{getCharacter().name}":</p>
           <ul>
-            <li>Frontend:<ProgressBar value={getCharacter().frontend} max="10"/></li>
-            <li>Backend: <ProgressBar value={getCharacter().backend} max="10"/></li>
-            <li>CSS: <ProgressBar value={getCharacter().css} max="10"/></li>
-            <li>Motivación: <ProgressBar value={getCharacter().motivacion} max="10"/></li>
+            <li>Frontend: {getCharacter().frontend}<ProgressBar value={getCharacter().frontend} max="10"/></li>
+            <li>Backend: {getCharacter().backend}<ProgressBar value={getCharacter().backend} max="10"/></li>
+            <li>CSS: {getCharacter().css}<ProgressBar value={getCharacter().css} max="10"/></li>
+            <li>Motivación: {getCharacter().motivacion}<ProgressBar value={getCharacter().motivacion} max="10"/></li>
           </ul>
           <button onClick={handleReset}>Volver a pagar el bootcamp</button>
         </>
