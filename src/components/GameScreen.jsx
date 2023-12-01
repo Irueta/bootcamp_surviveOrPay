@@ -50,6 +50,7 @@ const addLevelCharacter = () => {
     frontend: selectedCharacter.frontend + 1,
     backend: selectedCharacter.backend + 1,
     css: selectedCharacter.css + 1,
+    motivacion: selectedCharacter.motivacion + 1
   };
   setSelectedCharacter(updatedCharacter);
 };
@@ -57,7 +58,15 @@ const addLevelCharacter = () => {
   const handleSurvived = (timeLeft) => {
     // Actualiza el nivel y los puntos requeridos
     setCountdown(timeLeft);
-    setLevel((prevLevel) => prevLevel + 1);
+    if (level<=15){
+      setLevel((prevLevel) => prevLevel + 1);
+    }else{
+      setShowComputerGame(false);
+    onGameOver(level);
+    localStorage.setItem('levelsReached', level)
+    localStorage.removeItem('character');
+    localStorage.setItem('character', JSON.stringify(selectedCharacter));
+    }
     setPointsRequired((prevPointsRequired) => prevPointsRequired + 100);
 
     

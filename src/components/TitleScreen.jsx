@@ -45,7 +45,7 @@ const getCharacter = () => {
       <img id="titulo" src="/titulo.png" alt="Bootcamp Survive" />
       {playerName ? (
         <>
-          <p>Has hecho lo que has podido, {playerName}.</p>
+          <p>Has hecho lo que has podido {playerName}, pero siempre serás carne de Carpe Diez.</p>
           <p>Niveles alcanzados: {getLevelsReached()}</p>
           <p>Personaje utilizado, "{getCharacter().name}":</p>
           <ul>

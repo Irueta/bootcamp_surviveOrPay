@@ -29,7 +29,7 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
   }, [inProgress, progress, level, pointsRequired]);
 
   useEffect(() => {
-    if (inProgress && countdown > 0) {
+    if (inProgress && countdown > 0 && level !==1) {
       const countdownInterval = setInterval(() => {
         setCountdown((prevCountdown) => prevCountdown - 1);
       }, 1000);
@@ -38,7 +38,7 @@ const ComputerGameScreen = ({ player, onSurvived, onFailed, onQuit, level, point
     } else if (countdown === 0) {
       setInProgress(false);
       onFailed();
-    }
+    } 
   }, [inProgress, countdown, onFailed, level]);
 
   useEffect(() => {
