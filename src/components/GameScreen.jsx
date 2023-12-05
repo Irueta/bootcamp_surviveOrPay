@@ -19,7 +19,7 @@ const GameScreen = ({ player, onNextLevel, onGameOver, onQuit }) => {
 
   useEffect(() => {
     const charactersData = [
-      { id: 1, name: 'Ohol Atz', frontend: 1, backend: 1, css: 3, motivacion: 0.5 },
+      { id: 1, name: 'Ohol Atz', frontend: 1, backend: 1, css: 3, motivacion: 1 },
       { id: 2, name: 'Vic Thor', frontend: 7, backend: 3, css: 9, motivacion: 1 },
       { id: 3, name: 'Ahal Ex', frontend: 6, backend: 7, css: 6, motivacion: 1 },
       { id: 4, name: 'Estré', frontend: 7, backend: 3, css: 8, motivacion: 2 },
