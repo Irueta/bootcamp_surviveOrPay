@@ -230,3 +230,36 @@ progress::-webkit-progress-value {
   border-radius: 8px;
   text-align: center;
 }
+
+
+@media (max-width: 400px) {
+  #titulo {
+    transform: scale(0.4);
+  }
+  .character-list {
+    flex-direction: column ;
+    align-items: center;
+}
+
+.title-screen{
+  transform: scale(0.8);
+  position: relative;
+  top: -280px;
+}
+
+#selecPerson {
+  transform: scale(0.4);
+}
+
+#preguntaleChatGPTImage {
+
+  scale: 0.3;
+}
+
+modal-content {
+  scale: 0.55;
+  position: relative;
+  top: -500px;
+  left: -220px;
+}
+}
