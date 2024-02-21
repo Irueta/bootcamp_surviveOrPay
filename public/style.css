@@ -137,8 +137,8 @@ text-align: center;
 }
 
 #titulo{
-  position: fixed;
-  top: 180px;
+  position: relative;
+  top: -225px;
 }
 
 #selecPerson{
